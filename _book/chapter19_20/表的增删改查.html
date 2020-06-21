@@ -1,0 +1,431 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7. 表的增删改查 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../视图_存储过程_游标.html" />
+    
+    
+    <link rel="prev" href="../chapter18/全文本搜索.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../mysql环境准备.html">
+            
+                <a href="../mysql环境准备.html">
+            
+                    
+                    1. mysql环境准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../简单的表查询.html">
+            
+                <a href="../简单的表查询.html">
+            
+                    
+                    2. 简单的表查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../通配符与正则表达式.html">
+            
+                <a href="../通配符与正则表达式.html">
+            
+                    
+                    3. 通配符与正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter10_13/mysql函数与分组.html">
+            
+                <a href="../chapter10_13/mysql函数与分组.html">
+            
+                    
+                    4. mysql函数与分组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../子查询_联结查询_组合查询.html">
+            
+                <a href="../子查询_联结查询_组合查询.html">
+            
+                    
+                    5. 子查询联结查询组合查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter18/全文本搜索.html">
+            
+                <a href="../chapter18/全文本搜索.html">
+            
+                    
+                    6. 全文本搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="表的增删改查.html">
+            
+                <a href="表的增删改查.html">
+            
+                    
+                    7. 表的增删改查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../视图_存储过程_游标.html">
+            
+                <a href="../视图_存储过程_游标.html">
+            
+                    
+                    8.视图存储过程游标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../触发器和事务处理.html">
+            
+                <a href="../触发器和事务处理.html">
+            
+                    
+                    9. 触发器和事务处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../字符集_校对_数据库的维护.html">
+            
+                <a href="../字符集_校对_数据库的维护.html">
+            
+                    
+                    10. 字符集校对数据库的维护
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >7. 表的增删改查</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x524D;&#x8A00;</p>
+<p>1&#xFE0F;&#x20E3; &#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105478479" target="_blank">mysql&#x73AF;&#x5883;&#x51C6;&#x5907;</a></p>
+<p>2&#xFE0F;&#x20E3; &#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105718525" target="_blank">&#x7B80;&#x5355;&#x7684;&#x8868;&#x67E5;&#x8BE2;</a></p>
+<p>3&#xFE0F;&#x20E3; &#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105737660" target="_blank">&#x901A;&#x914D;&#x7B26;+&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</a></p>
+<p>4&#xFE0F;&#x20E3; &#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105748596" target="_blank">mysql&#x51FD;&#x6570;&#x4E0E;&#x5206;&#x7EC4;</a></p>
+<p>5&#xFE0F;&#x20E3; &#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105775052" target="_blank">&#x5B50;&#x67E5;&#x8BE2;<em>&#x8054;&#x7ED3;&#x67E5;&#x8BE2;</em>&#x7EC4;&#x5408;&#x67E5;&#x8BE2;</a></p>
+<p>:six: &#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105776310" target="_blank">mysql&#x5168;&#x6587;&#x672C;&#x641C;&#x7D22;</a></p>
+<p>&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#xFF1A;&#x6211;&#x4EEC;&#x51C6;&#x5907;&#x73AF;&#x5883;&#xFF1A;&#x5B89;&#x88C5;&#x6570;&#x636E;&#x5E93;+&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;+&#x521B;&#x5EFA;&#x7528;&#x6237;+&#x6388;&#x6743;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#xFF1A;&#x73AF;&#x5883;&#x51C6;&#x5907;&#x597D;&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x5355;&#x8868;&#x67E5;&#x8BE2;&#xFF1A;&#x5BFC;&#x5165;&#x8868;+&#x8868;&#x67E5;&#x8BE2;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x90E8;&#x5206;&#xFF1A;&#x901A;&#x914D;&#x7B26;&#x548C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x589E;&#x5F3A;where&#x7684;&#x7B5B;&#x9009;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x7B2C;&#x56DB;&#x90E8;&#x5206;&#xFF1A;&#x5BF9;&#x5217;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x5904;&#x7406;&#x79F0;&#x4E3A;&#x5B57;&#x6BB5;&#x3002;&#x590D;&#x6742;&#x7684;&#x5B57;&#x6BB5;&#x7528;&#x51FD;&#x6570;&#x5904;&#x7406;&#x3002;&#x6309;&#x7167;&#x4E0D;&#x540C;&#x7EC4;&#x6C47;&#x603B;&#xFF0C;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x7B2C;&#x4E94;&#x90E8;&#x5206;&#xFF1A;&#x5728;&#x591A;&#x8868;&#x4E0A;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF1A;&#x5B50;&#x67E5;&#x8BE2;+&#x8054;&#x7ED3;&#x67E5;&#x8BE2;&#xFF0B;&#x7EC4;&#x5408;&#x67E5;&#x8BE2;&#x3002;</p>
+<p>&#x7B2C;&#x516D;&#x90E8;&#x5206;&#xFF1A;mysql&#x7684;&#x5168;&#x6587;&#x672C;&#x641C;&#x7D22;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x662F;&#x7B2C;&#x4E03;&#x90E8;&#x5206;&#xFF0C;&#x53C2;&#x8003;&#x300A;mysql&#x5FC5;&#x77E5;&#x5FC5;&#x4F1A;&#x300B;chapter19~20&#xFF0C;<strong>&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;&#x6570;&#x636E;&#x3002;</strong></p>
+<p><strong>&#x8FD9;&#x4E03;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x662F;mysql&#x57FA;&#x7840;&#x4E2D;&#x7684;&#x57FA;&#x7840;&#x3002;&#x5373;&#xFF0C;&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;&#x3002;</strong></p>
+<p>&#x524D;&#x516D;&#x90E8;&#x5206;&#x662F;&#x8868;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x73B0;&#x5728;&#x8865;&#x4E0A;&#x8868;&#x7684;&#x63D2;&#x5165;/&#x4FEE;&#x6539;/&#x5220;&#x9664;&#xFF0C;&#x57FA;&#x7840;&#x7684;&#x57FA;&#x7840;&#x90E8;&#x5206;&#x5C31;&#x5168;&#x4E4E;&#x4E86;&#x3002;</p>
+<hr>
+<p>[toc]</p>
+<h2 id="&#x6458;&#x8981;&#x4E0E;&#x603B;&#x7ED3;">&#x6458;&#x8981;&#x4E0E;&#x603B;&#x7ED3;</h2>
+<p><a href="https://www.cnblogs.com/zhangmingcheng/p/5295684.html" target="_blank"><strong>SQL &#x5206;&#x7C7B;</strong></a></p>
+<blockquote>
+<p><strong>SQL &#x8BED;&#x53E5;&#x4E3B;&#x8981;&#x53EF;&#x4EE5;&#x5212;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B; 3 &#x4E2A;&#x7C7B;&#x522B;&#x3002;</strong></p>
+<p><strong>DDL&#xFF08;Data Definition Languages&#xFF09;&#x8BED;&#x53E5;&#xFF1A;</strong>&#x6570;&#x636E;&#x5B9A;&#x4E49;&#x8BED;&#x8A00;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x5B9A;&#x4E49;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x6BB5;&#x3001;&#x6570;&#x636E;&#x5E93;&#x3001;&#x8868;&#x3001;&#x5217;&#x3001;&#x7D22;&#x5F15;&#x7B49;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x8C61;&#x7684;&#x5B9A;&#x4E49;&#x3002;&#x5E38;&#x7528;&#x7684;&#x8BED;&#x53E5;&#x5173;&#x952E;&#x5B57;&#x4E3B;&#x8981;&#x5305;&#x62EC; create&#x3001;drop&#x3001;alter&#x7B49;&#x3002;</p>
+<p><strong>DML&#xFF08;Data Manipulation Language&#xFF09;&#x8BED;&#x53E5;&#xFF1A;</strong>&#x6570;&#x636E;&#x64CD;&#x7EB5;&#x8BED;&#x53E5;&#xFF0C;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x3001;&#x66F4;&#x65B0;&#x548C;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#x5E93;&#x8BB0;&#x5F55;&#xFF0C;&#x5E76;&#x68C0;&#x67E5;&#x6570;&#x636E;&#x5B8C;&#x6574;&#x6027;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x8BED;&#x53E5;&#x5173;&#x952E;&#x5B57;&#x4E3B;&#x8981;&#x5305;&#x62EC; insert&#x3001;delete&#x3001;udpate &#x548C;select &#x7B49;&#x3002;(&#x589E;&#x6DFB;&#x6539;&#x67E5;&#xFF09;</p>
+<p><strong>DCL&#xFF08;Data Control Language&#xFF09;&#x8BED;&#x53E5;&#xFF1A;</strong>&#x6570;&#x636E;&#x63A7;&#x5236;&#x8BED;&#x53E5;&#xFF0C;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x6BB5;&#x76F4;&#x63A5;&#x7684;&#x8BB8;&#x53EF;&#x548C;&#x8BBF;&#x95EE;&#x7EA7;&#x522B;&#x7684;&#x8BED;&#x53E5;&#x3002;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x5B9A;&#x4E49;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x3001;&#x8868;&#x3001;&#x5B57;&#x6BB5;&#x3001;&#x7528;&#x6237;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x548C;&#x5B89;&#x5168;&#x7EA7;&#x522B;&#x3002;&#x4E3B;&#x8981;&#x7684;&#x8BED;&#x53E5;&#x5173;&#x952E;&#x5B57;&#x5305;&#x62EC; grant&#x3001;revoke &#x7B49;&#x3002;</p>
+</blockquote>
+<p>&#x8FD9;&#x91CC;&#xFF0C;&#x4E3B;&#x8981;&#x8865;&#x5145;<code>insert&#x3001;delete&#x3001;udpate</code> &#x64CD;&#x4F5C;&#xFF0C;&#x6784;&#x6210;mysql&#x7684;&#x57FA;&#x7840;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
+<p><br></p>
+<p><br></p>
+<h2 id="&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;">&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;</h2>
+<p><img src="&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;.assets/upup.jpg" alt="upup"></p>
+<pre><code class="lang-mysql"># select &#x8BED;&#x53E5;&#xFF0C;&#x89C1;&#xFF11;&#xFF0D;&#xFF16;&#x90E8;&#x5206;
+
+# insert &#x8BED;&#x53E5;&#xFF1B;&#x5EFA;&#x8BAE;&#x660E;&#x786E;&#x7ED9;&#x51FA;&#x5217;&#x540D;&#xFF0C;&#x4EE5;&#x4E0D;&#x4F9D;&#x8D56;&#x5217;&#x987A;&#x5E8F;
+# insert&#x8BED;&#x53E5;&#x8FD8;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x63D2;&#x5165;&#x591A;&#x884C;&#xFF0C;&#x7ED3;&#x5408;select&#x7B49;
+INSERT INTO orders(order_num, order_date, cust_id)
+VALUES(20005, &apos;2005-09-01&apos;, 10001);
+
+# update &#x8BED;&#x53E5;
+UPDATE customers
+SET cust_city=&apos;taiyuan&apos;
+WHERE cust_contact=&apos;dacao&apos;;
+
+# delete&#x3000;&#x8BED;&#x53E5;
+DELETE FROM customers
+WHERE cust_contact=&apos;dacao&apos;;
+</code></pre>
+<p>&#x5E73;&#x65F6;&#x4E0D;&#x600E;&#x4E48;&#x7528;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4E5F;&#x8BB0;&#x4E0D;&#x5F97;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x3002;&#x8981;&#x4E0D;&#x662F;&#x8FD9;&#x6B21;&#x5B9E;&#x4E60;&#x7684;&#x7F18;&#x6545;&#xFF0C;&#x6211;&#x4F30;&#x8BA1;&#x77ED;&#x65F6;&#x95F4;&#x5185;&#x4E0D;&#x4F1A;&#x770B;&#x6570;&#x636E;&#x5E93;&#x3002;&#x65E2;&#x7136;&#x770B;&#x4E86;&#xFF0C;&#x5C31;&#x628A;&#x5B83;&#x770B;&#x5B8C;&#x5427;&#xFF0C;&#x642D;&#x8D77;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x77E5;&#x8BC6;&#x6846;&#x67B6;&#x5427;&#x3002;</p>
+<p><br></p>
+<p><br></p>
+<h2 id="&#x5176;&#x4ED6;">&#x5176;&#x4ED6;</h2>
+<blockquote>
+<p>&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;
+&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;&#x672C;&#x6587;&#x4E3A;CSDN&#x535A;&#x4E3B;&#x300C;&#x5927;1234&#x8349;&#x300D;&#x7684;&#x539F;&#x521B;&#x6587;&#x7AE0;&#xFF0C;&#x9075;&#x5FAA;CC 4.0 BY-SA&#x7248;&#x6743;&#x534F;&#x8BAE;&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x9644;&#x4E0A;&#x539F;&#x6587;&#x51FA;&#x5904;&#x94FE;&#x63A5;&#x53CA;&#x672C;&#x58F0;&#x660E;&#x3002;
+&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="https://blog.csdn.net/sinat_38816924/article/details/105776310" target="_blank">https://blog.csdn.net/sinat_38816924/article/details/105776310</a></p>
+</blockquote>
+<p>&#x5F53;&#x6211;&#x590D;&#x5236;&#x535A;&#x6587;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6700;&#x540E;&#x4F1A;&#x7ED9;&#x51FA;&#x4E0A;&#x9762;&#x7684;&#x7248;&#x6743;&#x58F0;&#x660E;&#x3002;<strong>&#x4E86;&#x89E3;&#x8FD9;&#x4E9B;&#x534F;&#x8BAE;&#x662F;&#x975E;&#x5E38;&#x5FC5;&#x8981;&#x6EF4;</strong>&#x3002;</p>
+<p>&#x6070;&#x597D;&#x4ECA;&#x5929;&#x4E0A;&#x5348;&#xFF0C;&#x6211;&#x4ED4;&#x7EC6;&#x7785;&#x4E86;&#x4E0B;&#xFF0C;<a href="http://www.ruanyifeng.com/blog/2020/04/weekly-issue-105.html" target="_blank">&#x962E;&#x4E00;&#x5CF0;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;</a> &#x540E;&#x9762;&#x7684;&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;&#x201C;&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;&#x81EA;&#x7531;&#x8F6C;&#x8F7D;-&#x975E;&#x5546;&#x7528;-&#x975E;&#x884D;&#x751F;-&#x4FDD;&#x6301;&#x7F72;&#x540D;&#xFF08;<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">&#x521B;&#x610F;&#x5171;&#x4EAB;3.0&#x8BB8;&#x53EF;&#x8BC1;</a>&#xFF09;&#x201D;</p>
+<p>&#x77E5;&#x8BC6;&#x5171;&#x4EAB;&#x534F;&#x8BAE;&#xFF0C;&#x8BE6;&#x7EC6;&#x89C1;&#xFF1A;<a href="https://creativecommons.org/licenses/" target="_blank">&#x77E5;&#x8BC6;&#x5171;&#x4EAB;&#x7248;&#x6743;&#x8BB8;&#x53EF;&#x534F;&#x8BAE;</a></p>
+<p><strong>&#x7F72;&#x540D; CC BY</strong>&#x3000;&#x3001;<strong>&#x7F72;&#x540D;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; CC BY-SA</strong> &#x3001;<strong>&#x7F72;&#x540D;-&#x7981;&#x6B62;&#x6F14;&#x7ECE;  CC BY-ND</strong>&#x3000;&#x3001;<strong>&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528;  CC BY-NC</strong>&#x3000;</p>
+<p><strong>&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; CC BY-NC-SA</strong>&#x3000;&#x3001;<strong>&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528;-&#x7981;&#x6B62;&#x6F14;&#x7ECE; CC BY-NC-ND</strong></p>
+<p>&#x6240;&#x4EE5;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4ED6;&#x4EBA;&#x7684;csdn&#x7684;&#x6587;&#x7AE0;&#x5185;&#x5BB9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8981;&#x9075;&#x5FAA;CC 4.0 BY-SA&#x7248;&#x6743;&#x534F;&#x8BAE;&#x3002;</p>
+<p><strong>CC BY-SA</strong></p>
+<blockquote>
+<p>This license lets others remix, adapt, and build upon your work even for commercial purposes, as long as they credit you and license their new  creations under the identical terms. This license is often compared to  &#x201C;copyleft&#x201D; free and open source software licenses. All new works based  on yours will carry the same license, so any derivatives will also allow commercial use. This is the license used by Wikipedia, and is  recommended for materials that would benefit from incorporating content  from Wikipedia and similarly licensed projects.</p>
+</blockquote>
+<p><img src="&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;.assets/image-20200501173818019.png" alt="image-20200501173818019"></p>
+<p><a href="https://www.zhihu.com/question/380741546/answer/1190570384" target="_blank">&#x6709;&#x54EA;&#x4E9B;&#x80FD;&#x73A9;&#x4E0A;&#x4E00;&#x5929;&#x7684;&#x7F51;&#x7AD9;&#xFF1F;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter18/全文本搜索.html" class="navigation navigation-prev " aria-label="Previous page: 6. 全文本搜索">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../视图_存储过程_游标.html" class="navigation navigation-next " aria-label="Next page: 8.视图存储过程游标">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7. 表的增删改查","level":"1.8","depth":1,"next":{"title":"8.视图存储过程游标","level":"1.9","depth":1,"path":"视图_存储过程_游标.md","ref":"视图_存储过程_游标.md","articles":[]},"previous":{"title":"6. 全文本搜索","level":"1.7","depth":1,"path":"chapter18/全文本搜索.md","ref":"chapter18/全文本搜索.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter19_20/表的增删改查.md","mtime":"2020-05-01T09:39:20.392Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-21T14:27:09.557Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
